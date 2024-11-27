@@ -1,0 +1,101 @@
+{{ if isset .Site.Params "retreats" }}
+{{ if .Site.Params.retreats.enable }}
+<section class="bar background-white no-mb">
+    <div class="container">
+
+        <div>
+            <div class="heading text-center">
+                <h2>{{ .Site.Params.retreats.title | markdownify }}</h2>
+            </div>
+
+            <p class="lead">
+                <a href="/events">{{ .Site.Params.retreats.subtitle | markdownify }}</a>
+            </p>
+            <hr>
+            <!-- *** BLOG HOMEPAGE *** -->
+            <div>
+                {{ $posts := (where site.RegularPages "Type" "events") }}
+                {{ range first 1 $posts }}
+                <div>
+                    <div id="retreats-wrapper" class="box-image-text retreats">
+                        <div id="retreats-banner">
+                            <a href="{{ .Permalink }}">
+                            <div class="image">
+                                <h3 class="retreats-heading">{{ if .Params.callout }}{{ .Params.callout }}{{ end }}</h3>
+                                {{ if isset .Params "banner" }}
+                                <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="" >
+                                {{ else }}
+                                <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="">
+                                {{ end }}
+                            </div></a>
+                        </div>
+                      
+
+                        <div class="content" id="retreats-content">
+                            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                            <h5 class="retreats-icon"><i class="fas fa-location-dot" style="color:crimson;"></i>
+                          {{ if .Params.eventdate }}
+                            {{ .Params.eventdate}}
+                          {{ end }}
+                            </h5>
+                            <h5 class="retreats-icon"><i class="fas fa-calendar" style="color:crimson;"></i>
+                                {{ if .Params.location }}
+                                  {{ .Params.location}}
+                                {{ end }}
+                                  </h5>
+                            {{ if not .Site.Params.recent_posts.hide_summary }}
+                            <p class="intro">{{ .Summary | truncate 150 | plainify}}</p>
+                            <p class="read-more">
+                              <a href="{{ .Permalink }}" class="btn btn-lg btn-template-main landing-btns">Learn More</a>
+                            </p>
+                            {{ end }}
+                        </div>
+                      </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        {{ $meetings := .Site.Params.retreats.meetings }}
+        <table class="events-table">
+            <tr><td><span>Recurring events</span></td><td><span>How often?</span></td><td><span>Cost</span></td></tr>
+            {{ range $meetings }}
+            <tr>
+                <td id="title"><a href="#">{{ .title }}</a><span>{{ .subtitle }}</span></td>
+                <td>{{ .schedule }}</td>
+                <td>{{ .cost }}</td>
+            </tr>
+            {{ end }}
+        </table>
+
+    </div>
+
+    <div class="container">
+       <div class="blog-grid-wrapper">
+            {{ range .Site.Data.events }}
+            <div class="col-md-3 col-sm-6" id="blog-grid"> 
+                <div class="box-image-text blog" id="events-wrapper">
+                    <div class="top">
+                        <a href="{{ .url }}">
+                        <div class="image" style="overflow:hidden">
+                            <img src="{{ .image }}" class="img-responsive" alt="">
+                        </div></a>
+                    </div>
+                    <div class="content">
+                        <h4><a href="{{ .url }}">{{ .name }}</a></h4>
+                        <p class="intro">{{ .text }}</p>
+                        <p class="read-more">
+                          <a href="{{ .url }}" class="btn btn-template-main">Learn More</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- /.container -->
+</section>
+<!-- /.bar -->
+{{ end }}
+{{ end }}

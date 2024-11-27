@@ -1,0 +1,62 @@
+{{ if isset .Site.Params "recent_posts" }}
+{{ if .Site.Params.recent_posts.enable }}
+<section class="bar background-white no-mb">
+    <div class="container">
+
+        <div>
+            <div class="heading text-center">
+                <h2>{{ .Site.Params.recent_posts.title | markdownify }}</h2>
+            </div>
+
+            <p class="lead">
+              <a href="/blog">View Archive</a>
+            </p>
+            <hr>
+
+            <!-- *** BLOG HOMEPAGE *** -->
+
+            <div class="blog-grid-wrapper">
+                {{ $posts := where site.RegularPages "Type" "blog" }}
+                {{ range first 4 $posts }}
+                <div class="col-md-3 col-sm-6" id="blog-grid">
+                    <div class="box-image-text blog">
+                        <div class="top">
+                            <a href="{{ .Permalink }}">
+                            <div class="image" style="overflow:hidden">
+                                {{ if isset .Params "banner" }}
+                                <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="" >
+                                {{ else }}
+                                <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="">
+                                {{ end }}
+                            </div></a>
+
+                        </div>
+
+                        <div class="content">
+                            <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+                            {{ if not .Site.Params.recent_posts.hide_summary }}
+                            <p class="intro">{{ .Summary | truncate 150 | plainify}}</p>
+                            <p class="read-more">
+                              <a href="{{ .Permalink }}" >{{ i18n "continueReading" }}...</a>
+                            </p>
+                            {{ end }}
+                        </div>
+                    </div>
+                    <!-- /.box-image-text -->
+
+                </div>
+                {{ end }}
+
+            </div>
+            <!-- /.row -->
+
+            <!-- *** BLOG HOMEPAGE END *** -->
+
+        </div>
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- /.bar -->
+{{ end }}
+{{ end }}

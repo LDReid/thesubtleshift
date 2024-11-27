@@ -1,0 +1,59 @@
+{{ if isset .Site.Params "services" }}
+{{ if .Site.Params.services.enable }}
+{{ if isset .Site.Data "services" }}
+{{ if gt (len .Site.Data.services) 0 }}
+<section class="bar background-services no-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading text-center">
+                    <h2>{{ .Site.Params.services.title }}</h2>
+                </div>
+
+                <p class="lead">
+                  {{ .Site.Params.services.subtitle | markdownify }}
+                </p>
+
+                <!-- *** services CAROUSEL *** -->
+
+                <ul class="owl-carousel testimonials same-height-row"
+                    data-items="{{ default 4 .Site.Params.CarouselServices.items }}"
+                    data-autoplay="{{ default false .Site.Params.CarouselServices.auto_play }}"
+                    data-slide-speed="{{ default 2000 .Site.Params.CarouselServices.slide_speed }}"
+                    data-pagination-speed="{{ default 1000 .Site.Params.CarouselServices.pagination_speed }}">
+                    {{ range .Site.Data.services }}
+                    <li class="item" id="service-cards"><a href="{{ .link }}" class="service-link" target="_blank">
+                        <div class="testimonial">
+                            {{ if .image}}
+                            <div class="image-services">
+                                <div class="image-services-wrapper">
+                                <!--<div class="icon-services"><i class="{{ .icon }}"></i></div>-->
+                                <img src="{{ .image }}">
+                                </div>
+                            </div>
+                            {{ end }}
+                            <h3>{{ .name }}</h3>
+                            <div class="text">
+                                <p>{{ .text | markdownify }}</p>
+                            </div>
+                            <div class="bottom">
+                                <a href="{{ .link }}" class="btn btn-template-main" target="_blank">Pricing Options</a>
+                            </div>
+                            
+                        </div></a>
+                    </li>
+                    {{ end }}
+                </ul>
+                <!-- /.owl-carousel -->
+                <div class="services-btn"><a href="/services" class="btn btn-lg btn-template-main">Read more about my services</a></div>
+                <!-- *** services CAROUSEL END *** -->
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- /.bar -->
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

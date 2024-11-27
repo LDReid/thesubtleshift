@@ -1,0 +1,25 @@
+{{ if .Site.Params.books.enable }}
+<section id="book" class="bar no-mb">
+
+    <div class="container">
+      <div class="heading text-center">
+          <h2>{{ .Site.Params.books.title | markdownify }}</h2>
+      </div>
+      <p class="lead">
+        {{ .Site.Params.books.subtitle | markdownify }}
+      </p>
+      <hr>
+      <div id="book-blurb">
+        <div id="book-mockup"><img src="/img/intimacy-of-light.png" alt=""></div>
+        <div id="book-body">
+          <h2>{{ .Site.Params.books.heading | markdownify }}</h2>
+          <p>{{ .Site.Params.books.body | markdownify }}</p>
+          <div><a href="" class="btn btn-lg btn-template-main landing-btns">Learn more</a></div>
+        </div>
+      </div>
+    </div>
+</section>
+<div id="book-mobile">
+  <img src="/img/ALG_7832-gen-fill.jpg" alt="">
+</div>
+{{ end }}

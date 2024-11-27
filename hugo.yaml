@@ -1,0 +1,235 @@
+baseURL: https://example.org/
+title: The Subtle Shift
+theme: hugo-universal-theme
+languageCode: en-us
+defaultContentLanguage: en
+disqusShortname: devcows
+googleAnalytics: ""
+summaryLength: 40
+pagination:
+  pagerSize: 10
+pluralizelisttitles: false
+menu:
+  main:
+    - name: Home
+      identifier: menu.home
+      url: /
+      weight: 1
+    - name: Services
+      identifier: menu.features
+      url: https://thesubtleshift.simplybook.me/v2/#book
+      weight: 2
+    - name: Retreats & Events
+      identifier: menu.events
+      weight: 3
+    - name: Upcoming events
+      url: /events
+      weight: 1
+      parent: menu.events
+    - name: Intuitive Development Circle
+      weight: 2
+      parent: menu.events
+    - name: Holistics & Mystics Online
+      url: ""
+      weight: 3
+      parent: menu.events
+    - name: Private Retreats
+      url: ""
+      weight: 4
+      parent: menu.events
+    - name: Private Group Experiences
+      url: ""
+      weight: 5
+      parent: menu.events
+      name: Event archive
+      url: /events/
+      weight: 6
+      parent: menu.events
+    - name: Books
+      identifier: menu.books
+      weight: 4
+    - name: Intimacy of Light
+      url: ""
+      weight: 1
+      parent: menu.books
+      post: 1
+    - name: Blog
+      identifier: menu.blog
+      url: /blog/
+      weight: 5
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 7
+  topbar:
+    - weight: 1
+      name: Phone
+      url: tel:416-710-3899
+      pre: <i class='fas fa-2x fa-phone'></i>
+    - weight: 3
+      name: Facebook
+      url: http://facebook.com/thesubtleshift
+      pre: <i class='fab fa-2x fa-facebook'></i>
+    - weight: 4
+      name: Instagram
+      url: http://instagram.com/thesubtleshift
+      pre: <i class='fab fa-2x fa-instagram'></i>
+    - weight: 5
+      name: Email
+      url: mailto:denise@thesubtleshift.ca
+      pre: <i class='fas fa-2x fa-envelope'></i>
+params:
+  viewMorePostLink: /blog/
+  author: Denise
+  defaultKeywords:
+    - go
+  mainSections:
+    - blog
+  defaultDescription: ""
+  facebook_site: ""
+  twitter_site: GoHugoIO
+  default_sharing_image: img/sharing-default.png
+  enableGoogleMaps: true
+  googleMapsApiKey: AIzaSyAv7Sza8NSp9_l_g8G2vlo0H4ydEPn_2jY
+  latitude: "44.5900135"
+  longitude: "-78.4233939"
+  style: green
+  formspree_action: https://formspree.io/sample/of/endpoint
+  contact_form_ajax: false
+  enableRecaptchaInContactForm: false
+  googleRecaptchaKey: site_key_for_google_recaptcha
+  about_us: <p>Denise Benning (Channa Dee) is an energy healer, divine channel,
+    author, and intuitive dedicated to guiding individuals on a journey of
+    self-discovery and soul connection.</p>
+  copyright: Copyright (c) 2025, The Subtle Shift; all rights reserved.
+  date_format: January 2, 2006
+  dropdown_mouse_over: false
+  disabled_logo: false
+  logo_text: TheSubtleShift
+  logo: img/SubtleShift-logo.png
+  logo_small: img/SubtleShift-logo.png
+  contact_url: /contact
+  address: "<p class=\"text-uppercase\"><strong>The Subtle Shift</strong>
+
+    \        <br>221 Edwina dr.
+
+    \        <br>Trent Lakes, ON
+
+    \        <br>K0M1A0
+
+    \        <br>
+
+    \        <strong>Canada</strong>
+
+    \      </p>
+
+    \      "
+  topbar:
+    enable: true
+    text: "<p class=\"hidden-sm hidden-xs\">Contact me at 416-710-3899 or
+      denise@thesubtleshift.ca</p>
+
+      \      "
+  widgets:
+    categories: true
+    tags: true
+    search: true
+  carouselCustomers:
+    items: 6
+    auto_play: true
+    slide_speed: 100
+    pagination_speed: 1000
+  carouselTestimonials:
+    items: 4
+    auto_play: true
+    slide_speed: 100
+    pagination_speed: 500
+  carouselServices:
+    items: 4
+    auto_play: true
+    slide_speed: 100
+    pagination_speed: 500
+  carouselHomepage:
+    enable: true
+    auto_play: true
+    slide_speed: 2000
+    pagination_speed: 1000
+  welcome:
+    enable: true
+    body:
+      My mission is to empower you to find healing and insight on your path to
+      wholeness and authenticity through energetic wellness. This includes
+      reiki, light language, angel messages and intuitive services.
+    signoff: "*I would be honoured to take you on a journey with your Soul.*"
+    url: https://thesubtleshift.simplybook.me/v2/#book
+  features:
+    enable: true
+    cols: 3
+  testimonials:
+    enable: true
+    title: What my clients have to say
+  services:
+    enable: true
+    title: Services
+    subtitle: Sessions available in my **forest studio** or at a **distance.**
+  see_more:
+    enable: true
+    icon: /img/ss-minimized-white.png
+    title: What are my modalities?
+    subtitle: Learn more about Reiki, Light Language, Angels, & Energetic Wellness
+    link_url: /blog/modalities
+    link_text: Read more
+  clients:
+    enable: true
+    title: Our Clients
+    subtitle: ""
+  recent_posts:
+    enable: true
+    title: From the blog
+  retreats:
+    enable: true
+    title: Retreats & Events
+    subtitle: View Archive
+    hide_summary: false
+    meetings:
+      - title: Soul Path Circle (Morning)
+        subtitle: Spiritual development circles in the Yurt
+        schedule: Bi-weekly Wednesdays @ 10am
+        cost: $15
+      - title: Soul Path Circle (Evening)
+        subtitle: Spiritual development circles in the Yurt
+        schedule: First Tuesday of the month @ 6:30pm
+        cost: $15
+      - title: Holistics and Mystics call
+        subtitle: Online Soulpreneur networking circle
+        schedule: 3rd Wednesday of the month @ 8pm
+        cost: Free
+  books:
+    enable: true
+    title: Read my book
+    heading: Intimacy of Light
+    body: This book is a deeply personal story of spiritual awakening. It is a
+      captivating blend of **cosmic memoir** and **spiritual guidebook,** in
+      which Denise Benning (Channa Dee) shares the journey of her soul’s light,
+      guided by the radiant presence of Jeremiah, a Divine Master with whom she
+      shares an eternal connection spanning countless lifetimes.
+  aboutvideo:
+    enable: true
+    title: Featured Podcast
+    hide_summary: false
+    videoID: abwmRsT9XMY
+  calltoaction:
+    enable: true
+    heading: Ready to step into your path?
+    body: Discover healing, clarity, and step into your being with personalized energy sessions, intuitive guidance, and transformative retreats. If you're not sure where you should start, I reccomend an energy session! Let's take a journey with your soul.
+    button: Book a Session
+    url: "https://thesubtleshift.simplybook.me/v2/#book"
+  footer:
+    recent_posts:
+      enable: false
+permalinks:
+  blog: /blog/:filename/
+taxonomies:
+  category: categories
+  tag: tags
+  author: authors

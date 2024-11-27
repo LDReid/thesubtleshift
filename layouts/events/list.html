@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+  </head>
+
+  <body>
+
+    <div id="all">
+
+        {{ partial "top.html" . }}
+
+        {{ partial "nav.html" . }}
+
+        {{ partial "breadcrumbs.html" . }}
+
+        <div id="content">
+            <div class="container">
+            <div>
+                {{ $posts := (where site.RegularPages "Type" "events") }}
+                {{ range $posts }}
+                <div>
+                  <div id="retreats-wrapper" class="box-image-text retreats">
+                      <div id="retreats-banner">
+                          <a href="{{ .Permalink }}">
+                          <div class="image">
+                              <h3 class="retreats-heading">{{ if .Params.callout }}{{ .Params.callout }}{{ end }}</h3>
+                              {{ if isset .Params "banner" }}
+                              <img src="{{ .Params.banner | relURL }}" class="img-responsive" alt="" >
+                              {{ else }}
+                              <img src="{{ "img/placeholder.png" | relURL }}" class="img-responsive" alt="">
+                              {{ end }}
+                          </div></a>
+                      </div>
+                    
+
+                      <div class="content" id="retreats-content">
+                          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                          <h5 class="retreats-icon"><i class="fas fa-location-dot" style="color:crimson;"></i>
+                        {{ if .Params.eventdate }}
+                          {{ .Params.eventdate}}
+                        {{ end }}
+                          </h5>
+                          <h5 class="retreats-icon"><i class="fas fa-calendar" style="color:crimson;"></i>
+                              {{ if .Params.location }}
+                                {{ .Params.location}}
+                              {{ end }}
+                                </h5>
+                          {{ if not .Site.Params.recent_posts.hide_summary }}
+                          <p class="intro">{{ .Summary | truncate 150 | plainify}}</p>
+                          <p class="read-more">
+                            <a href="{{ .Permalink }}" class="btn btn-lg btn-template-main landing-btns">Learn More</a>
+                          </p>
+                          {{ end }}
+                      </div>
+                    </div>
+              </div>
+                {{ end }}
+                <ul class="pager">
+                  {{ if .Paginator.HasPrev }}
+                  <li class="previous"><a href="{{ .Paginator.Prev.URL | relURL }}">&larr; {{ i18n "newer" }}</a></li>
+                  {{ else }}
+                  <li class="previous disabled"><a href="#">&larr; {{ i18n "newer" }}</a></li>
+                  {{ end }}
+
+                  {{ if .Paginator.HasNext }}
+                  <li class="next"><a href="{{ .Paginator.Next.URL | relURL }}">{{ i18n "older" }} &rarr;</a></li>
+                  {{ else }}
+                  <li class="next disabled"><a href="#">{{ i18n "older" }} &rarr;</a></li>
+                  {{ end }}
+              </ul>
+          </div>
+
+            </div>
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

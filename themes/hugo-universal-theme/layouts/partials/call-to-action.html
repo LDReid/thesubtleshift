@@ -1,0 +1,16 @@
+{{ if .Site.Params.calltoaction.enable }}
+<section id="calltoaction" class="bar no-mb">
+    <div class="container">
+      <div id="calltoaction-blurb">
+        <div id="book-body">
+          <h1>{{ .Site.Params.calltoaction.heading | markdownify }}</h1>
+          <p>{{ .Site.Params.calltoaction.body | markdownify }}</p>
+          <div><a href="{{ .Site.Params.calltoaction.url}}" class="btn btn-lg btn-template-main landing-btns">{{ .Site.Params.calltoaction.button | markdownify }}</a></div>
+        </div>
+      </div>
+    </div>
+</section>
+<div id="calltoaction-mobile">
+  <img src="/img/Denise-on-rock-gen-fill.jpg" alt="">
+</div>
+{{ end }}

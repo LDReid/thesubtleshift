@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+  </head>
+
+  <body>
+
+    <div id="all">
+
+        {{ partial "top.html" . }}
+
+        {{ partial "nav.html" . }}
+
+        {{ partial "welcome.html" . }}
+
+        {{ partial "services-block.html" . }}
+
+        {{ partial "see_more.html" . }}
+
+        {{ partial "retreats.html" . }}
+
+        {{ partial "about-video.html" . }}
+
+        {{ partial "book-feature.html" . }}
+        
+        {{ partial "recent_posts.html" . }}
+
+        {{ partial "testimonials.html" . }}
+
+        {{ partial "call-to-action.html" . }}
+
+        {{ partial "footer.html" . }}
+
+    </div>
+    <!-- /#all -->
+
+    {{ partial "scripts.html" . }}
+
+  </body>
+</html>

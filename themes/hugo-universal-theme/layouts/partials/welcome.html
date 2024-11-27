@@ -1,0 +1,13 @@
+{{ if .Site.Params.welcome.enable }}
+<header>
+  <div id="dee">
+    <div class="container" id="welcome-web">
+      {{ partial "welcome-blurb.html" . }}
+    </div>
+  </div>
+
+  <div class="container" id="welcome-mobile">
+    {{ partial "welcome-blurb.html" . }}
+  </div>
+</header>
+{{ end }}
